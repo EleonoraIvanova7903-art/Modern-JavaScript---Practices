@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map 1 Double Numbers</title>
+  </head>
+  <body>
+    <h1>Map 1 Double Numbers</h1>
+    <button id="btn">Show</button>
+    <div id="res"></div>
+
+    <script>
+      const nums = [1, 2, 3, 4];
+
+      const doubleNums = (list) => {
+        return list.map((x) => x * 2);
+      };
+
+      const render = (original, result) => {
+        let out = "";
+        out += "Original: " + original.join(", ") + "<br>";
+        out += "Result: " + result.join(", ");
+        document.querySelector("#res").innerHTML = out;
+      };
+
+      const handleShow = () => {
+        render(nums, doubleNums(nums));
+      };
+
+      document.querySelector("#btn").addEventListener("click", handleShow);
+    </script>
+  </body>
+</html>
