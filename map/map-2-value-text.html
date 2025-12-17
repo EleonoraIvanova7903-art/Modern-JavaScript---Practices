@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map 2 Value Text</title>
+  </head>
+  <body>
+    <h1>Map 2 Value Text</h1>
+    <button id="btn">Show</button>
+    <div id="res"></div>
+
+    <script>
+      const nums = [5, 10, 15];
+
+      const toValueText = (list) => {
+        return list.map((x) => "Value: " + x);
+      };
+
+      const render = (original, result) => {
+        let out = "";
+        out += "Original: " + original.join(", ") + "<br>";
+        out += "Result: " + result.join(", ");
+        document.querySelector("#res").innerHTML = out;
+      };
+
+      const handleShow = () => {
+        render(nums, toValueText(nums));
+      };
+
+      document.querySelector("#btn").addEventListener("click", handleShow);
+    </script>
+  </body>
+</html>
