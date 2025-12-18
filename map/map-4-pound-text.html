@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map 4 Pound Text</title>
+  </head>
+  <body>
+    <h1>Map 4 Pound Text</h1>
+    <button id="btn">Show</button>
+    <div id="res"></div>
+
+    <script>
+      const prices = [10, 25, 8];
+      const toPoundText = (list) => {
+        return list.map((p) => "£" + p);
+      };
+
+      const render = (original, result) => {
+        let out = "";
+        out += "Original: " + original.join(", ") + "<br>";
+        out += "Result: " + result.join(", ");
+        document.querySelector("#res").innerHTML = out;
+      };
+
+      const handlShow = () => {
+        render(prices, toPoundText(prices));
+      };
+
+      document.querySelector("#btn").addEventListener("click", handlShow);
+    </script>
+  </body>
+</html>
