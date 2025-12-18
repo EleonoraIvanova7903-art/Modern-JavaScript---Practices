@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map 9 Usernames Uppercase</title>
+  </head>
+  <body>
+    <h1>Map 9 Usernames Uppercase</h1>
+    <button id="btn">Show</button>
+    <div id="res"></div>
+
+    <script>
+      const names = [{ username: "anna22" }, { username: "ivan17" }];
+
+      const usernamesUpper = (list) => {
+        return list.map((u) => u.username.toUpperCase());
+      };
+      const render = (oribinal, result) => {
+        let out = "";
+        out +=
+          "Original: " + oribinal.map((u) => u.username).join(", ") + "<br>";
+        out += "Result: " + result.join(", ");
+        document.querySelector("#res").innerHTML = out;
+      };
+
+      const handleShow = () => {
+        render(names, usernamesUpper(names));
+      };
+
+      document.querySelector("#btn").addEventListener("click", handleShow);
+    </script>
+  </body>
+</html>
