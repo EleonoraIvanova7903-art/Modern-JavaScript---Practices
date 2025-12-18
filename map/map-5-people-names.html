@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map 5 People Names</title>
+  </head>
+  <body>
+    <h1>Map 5 People Names</h1>
+    <button id="btn">Show</button>
+    <div id="res"></div>
+
+    <script>
+      const people = [
+        { name: "Anna", age: 22 },
+        { name: "Ivan", age: 17 },
+        { name: "Maria", age: 30 },
+      ];
+
+      const getNames = (list) => {
+        return list.map((p) => p.name);
+      };
+
+      const formatPeople = (list) => {
+        return list.map((p) => p.name + "-" + p.age).join(", ");
+      };
+
+      const render = (originalList, resultList) => {
+        let out = "";
+        out += "Original: " + formatPeople(originalList) + "<br>";
+        out += "Result: " + resultList.join(", ");
+        document.querySelector("#res").innerHTML = out;
+      };
+
+      const handleShow = () => {
+        render(people, getNames(people));
+      };
+
+      document.querySelector("#btn").addEventListener("click", handleShow);
+    </script>
+  </body>
+</html>
