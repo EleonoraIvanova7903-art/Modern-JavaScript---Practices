@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map 7 Word Length</title>
+  </head>
+  <body>
+    <h1>Map 7 Word Length</h1>
+    <button id="btn">Show</button>
+    <div id="res"></div>
+
+    <script>
+      const words = ["cat", "dog", "bird"];
+
+      const addLength = (list) => {
+        return list.map((w) => w + " - " + w.length);
+      };
+
+      const render = (original, result) => {
+        let out = "";
+        out += "Original: " + original.join(", ") + "<br>";
+        out += "Result: " + result.join(", ");
+        document.querySelector("#res").innerHTML = out;
+      };
+
+      const handleShow = () => {
+        render(words, addLength(words));
+      };
+
+      document.querySelector("#btn").addEventListener("click", handleShow);
+    </script>
+  </body>
+</html>
