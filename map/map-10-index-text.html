@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map 10 Index Value Text</title>
+  </head>
+  <body>
+    <h1>Map 10 Index Value Text</h1>
+    <button id="btn">Show</button>
+    <div id="res"></div>
+
+    <script>
+      const nums = [3, 7, 9, 2];
+
+      const toIndexValueText = (list) => {
+        return list.map((x, i) => "Index: " + i + ", Value: " + x);
+      };
+
+      const render = (original, result) => {
+        let out = "";
+        out += "Original: " + original.join(", ") + "<br>";
+        out += "Result: " + "<br>" + result.join("<br>");
+        document.querySelector("#res").innerHTML = out;
+      };
+
+      const handleShow = () => {
+        render(nums, toIndexValueText(nums));
+      };
+
+      document.querySelector("#btn").addEventListener("click", handleShow);
+    </script>
+  </body>
+</html>
