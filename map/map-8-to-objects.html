@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map 8 To Objects</title>
+  </head>
+  <body>
+    <h1>Map 8 To Objects</h1>
+    <button id="btn">Show</button>
+    <div id="res"></div>
+
+    <script>
+      const nums = [1, 2, 3, 4, 5];
+
+      const toObjects = (list) => {
+        return list.map((x) => ({ value: x }));
+      };
+
+      const render = (original, result) => {
+        let out = "";
+        out += "Original: " + original.join(", ") + "<br>";
+        out +=
+          "Result: " +
+          result.map((o) => "{" + " value: " + o.value + "}").join(", ");
+        document.querySelector("#res").innerHTML = out;
+      };
+
+      const handleShow = () => {
+        render(nums, toObjects(nums));
+      };
+
+      document.querySelector("#btn").addEventListener("click", handleShow);
+    </script>
+  </body>
+</html>
