@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Names To Objects</title>
+  </head>
+  <body>
+    <h1>Names To Objects</h1>
+    <button id="btn">Show</button>
+    <div id="res"></div>
+
+    <script>
+      const names = ["Anna", "Maria", "Ivan"];
+
+      const toObjects = (list) => {
+        return list.map((n) => ({ value: n }));
+      };
+
+      const render = (original, object) => {
+        let out = "";
+        out += "Original: " + original.join(", ") + "<br>";
+        out +=
+          "Reslult: " +
+          "<br>" +
+          object.map((o) => "Name: " + o.value).join("<br>");
+        document.querySelector("#res").innerHTML = out;
+      };
+
+      const handleShow = () => {
+        const objects = toObjects(names);
+        render(names, objects);
+      };
+
+      document.querySelector("#btn").addEventListener("click", handleShow);
+    </script>
+  </body>
+</html>
