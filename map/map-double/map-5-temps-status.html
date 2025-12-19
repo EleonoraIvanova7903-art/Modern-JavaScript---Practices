@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Temperatures Status</title>
+  </head>
+  <body>
+    <h1>Temperatures Status</h1>
+    <button id="btn">Show</button>
+    <div id="res"></div>
+
+    <script>
+      const temps = [18, 22, 30];
+      const toObjects = (list) => {
+        return list.map((x) => ({
+          celsius: x,
+          status: x < 20 ? "cold" : x <= 25 ? "warm" : "hot",
+        }));
+      };
+      const render = (original, object) => {
+        let out = "";
+        out += "Original: " + original.join(", ") + "<br>";
+        out +=
+          "Result: " +
+          "<br>" +
+          object.map((o) => o.celsius + "℃ - " + o.status).join("<br>");
+        document.querySelector("#res").innerHTML = out;
+      };
+
+      const handleShow = () => {
+        render(temps, toObjects(temps));
+      };
+
+      document.querySelector("#btn").addEventListener("click", handleShow);
+    </script>
+  </body>
+</html>
