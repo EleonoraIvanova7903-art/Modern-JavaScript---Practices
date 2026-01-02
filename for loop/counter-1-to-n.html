@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Count from 1 to N</title>
+  </head>
+  <body>
+    <input type="number" id="num" />
+    <button id="btn">Show</button>
+    <div id="res"></div>
+
+    <script>
+      const input = document.querySelector("#num");
+      const button = document.querySelector("#btn");
+      const result = document.querySelector("#res");
+
+      function showNumbers() {
+        const value = Number(input.value);
+        let output = "";
+
+        if (!input.value || isNaN(value) || value <= 0) {
+          result.innerHTML = "Enter a positive number.";
+          return;
+        }
+
+        for (let i = 1; i <= value; i++) {
+          output += i + "<br>";
+        }
+
+        result.innerHTML = output;
+      }
+      button.addEventListener("click", showNumbers);
+    </script>
+  </body>
+</html>
