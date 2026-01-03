@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiplication Table</title>
+  </head>
+  <body>
+    <h1>Multiplication Table</h1>
+    <input type="number" id="num" />
+    <button id="btn">Show</button>
+    <div id="res"></div>
+
+    <script>
+      const numberInput = document.querySelector("#num");
+      const button = document.querySelector("#btn");
+      const result = document.querySelector("#res");
+
+      function showTable() {
+        const n = Number(numberInput.value);
+
+        if (Number.isNaN(n)) {
+          result.innerHTML = "Please enter a valid number.";
+          return;
+        }
+        let output = "";
+        for (let i = 0; i <= 10; i++) {
+          output += n + " x " + i + " = " + n * i + "<br>";
+        }
+        result.innerHTML = output;
+      }
+
+      button.addEventListener("click", showTable);
+    </script>
+  </body>
+</html>
