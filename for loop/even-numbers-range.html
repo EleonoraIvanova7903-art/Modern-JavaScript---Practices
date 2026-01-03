@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Even Numbers in Range</title>
+  </head>
+  <body>
+    <input type="number" name="" id="start" />
+    <input type="number" name="" id="end" />
+    <button id="btn">Show</button>
+    <div id="res"></div>
+
+    <script>
+      const startInput = document.querySelector("#start");
+      const endInput = document.querySelector("#end");
+      const button = document.querySelector("#btn");
+      const result = document.querySelector("#res");
+
+      function showEvenNumbers() {
+        const start = Number(startInput.value);
+        const end = Number(endInput.value);
+
+        if (Number.isNaN(start) || Number.isNaN(end)) {
+          result.innerHTML = "Please enter valid number.";
+          return;
+        }
+
+        if (start > end) {
+          result.innerHTML = "Start must be less than or equel End. ";
+          return;
+        }
+
+        let output = "";
+        for (let i = start; i < end; i++) {
+          if (i % 2 === 0) {
+            output += i + ", ";
+          }
+        }
+        if (output !== "") {
+          output = output.slice(0, -2);
+        }
+        result.innerHTML = output;
+      }
+
+      button.addEventListener("click", showEvenNumbers);
+    </script>
+  </body>
+</html>
